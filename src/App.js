@@ -1,25 +1,51 @@
-import logo from './logo.svg';
+import { LiFiWidget } from "@lifi/widget";
 import './App.css';
+import React from 'react';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+<main>
+    <div className="hero">
+    <LiFiWidget
+    config={{
+      integrator: 'PylonDEX',
+      fee: 0.01,
+      fromChain: 137,
+      toChain: 137,
+      containerStyle: {
+        border: `0px solid ${
+          window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'rgb(66, 66,66)'
+            : 'rgb(234, 234, 234)'
+        }`,
+        borderRadius: '20px',
+        marginTop: '90px',
+        marginBottom: '50px',
+        boxShadow: '0 5px 15px 0 rgba(14, 245, 6, 0.425)',
+      },
+      theme: {
+        palette: {
+          primary: { main: 'rgba(14, 245, 6, 0.425)' },
+          secondary: { main: 'rgba(14, 245, 6, 0.425)' },
+        },
+        shape: {
+          borderRadius: 16,
+          borderRadiusSecondary: 16,
+        },
+        typography: {
+          fontFamily: 'Comic Sans MS',
+        },
+      },
+      appearance: 'dark',
+      disableAppearance: true,
+      variant: 'expandable',
+      subvariant: 'split',
+    }}
+    
+  />
+  </div>
+  </main>
+);
 }
 
 export default App;
