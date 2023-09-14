@@ -1,17 +1,13 @@
-import { LiFiWidget } from "@lifi/widget";
+import { LiFiWidget, WidgetConfig } from '@lifi/widget';
+import { useMemo } from 'react';
 import './App.css';
-import React from 'react';
 
-function App() {
-  return (
-<main>
-    <div className="hero">
-    <LiFiWidget
-    config={{
-      integrator: 'PylonDEX',
-      fee: 0.01,
-      fromChain: 137,
-      toChain: 137,
+export const WidgetPage = () => {
+  const widgetConfig: WidgetConfig = useMemo(() => ({
+    integrator:"PylonDEX",
+    fee: 0.01,
+    fromChain: 137,
+    toChain: 137,
       containerStyle: {
         border: `0px solid ${
           window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -29,23 +25,24 @@ function App() {
           secondary: { main: 'rgba(14, 245, 6, 0.425)' },
         },
         shape: {
-          borderRadius: 16,
-          borderRadiusSecondary: 16,
+          borderRadius: 0,
+          borderRadiusSecondary: 0,
+          boxShadow: '0 5px 15px 0 rgba(14, 245, 6, 0.425)',
         },
         typography: {
           fontFamily: 'Comic Sans MS',
         },
       },
       appearance: 'dark',
-      disableAppearance: true,
+      hiddenUI: ['appearance'],
       variant: 'expandable',
       subvariant: 'split',
-    }}
-    
-  />
-  </div>
-  </main>
-);
-}
+    }), []);
 
-export default App;
+  return (
+    <div className="hero">
+    <LiFiWidget config={widgetConfig} />
+    </div>
+  );
+};
+export default WidgetPage;
