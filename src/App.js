@@ -25,8 +25,8 @@ export const WidgetPage = () => {
           secondary: { main: 'rgba(14, 245, 6, 0.425)' },
         },
         shape: {
-          borderRadius: 0,
-          borderRadiusSecondary: 0,
+          borderRadius: 16,
+          borderRadiusSecondary: 16,
           boxShadow: '0 5px 15px 0 rgba(14, 245, 6, 0.425)',
         },
         typography: {
